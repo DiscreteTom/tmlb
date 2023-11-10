@@ -1,32 +1,23 @@
 import type { Grammar, Pattern, TmLanguage } from "./tmLanguage.js";
 
-export class Repository {
-  private readonly repo: NonNullable<Grammar["repository"]>;
-
-  constructor() {
-    this.repo = {};
-  }
-
-  append(name: string, pattern: Pattern) {
-    this.repo[name] = pattern;
-    return this;
-  }
-}
-
-// TODO: add comments
 export class TmBuilder {
-  readonly scopeName: string;
-  readonly repo: Repository;
+  readonly scopeName: TmLanguage["scopeName"];
+  readonly repository: NonNullable<Grammar["repository"]>;
   readonly patterns: Pattern[];
 
-  constructor(props: Pick<TmBuilder, "scopeName">) {
+  constructor(props: Pick<TmLanguage, "scopeName">) {
     this.scopeName = props.scopeName;
-    this.repo = new Repository();
+    this.repository = {};
     this.patterns = [];
   }
 
   append(pattern: Pattern) {
     this.patterns.push(pattern);
+    return this;
+  }
+
+  repo(name: string, pattern: Pattern) {
+    this.repository[name] = pattern;
     return this;
   }
 
@@ -36,6 +27,9 @@ export class TmBuilder {
         "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
       scopeName: this.scopeName,
       patterns: this.patterns,
+      repository: Object.keys(this.repository).length
+        ? this.repository
+        : undefined,
     };
   }
 }
