@@ -1,7 +1,10 @@
 import { TmBuilder } from "../../src";
 import { compose } from "@discretetom/r-compose";
+import * as fs from "fs";
 
-const content = new TmBuilder({ scopeName: "source.test" })
+const filename = "./examples/r-compose/test.tmLanguage.json";
+
+const language = new TmBuilder({ scopeName: "source.test" })
   .append({
     name: "comment.line.double-slash.test",
     match: compose(({ concat, escape, select }) =>
@@ -40,4 +43,11 @@ const content = new TmBuilder({ scopeName: "source.test" })
   })
   .build();
 
-console.log(JSON.stringify(content, null, 2));
+const content = JSON.stringify(language, null, 2);
+
+// Usage: ts-node examples/r-compose/r-compose.test.ts
+// fs.writeFileSync(filename, content);
+
+test("r-compose", () => {
+  expect(content).toBe(fs.readFileSync(filename, "utf8"));
+});
