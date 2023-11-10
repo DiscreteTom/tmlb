@@ -4,9 +4,8 @@ export type TmLanguage = Grammar & {
   name?: string;
   /**
    * this should be a unique name for the grammar, following the convention of being a dot-separated name where each new (left-most) part specializes the name. Normally it would be a two-part name where the first is either text or source and the second is the name of the language or document type. But if you are specializing an existing type, you probably want to derive the name from the type you are specializing. For example Markdown is text.html.markdown and Ruby on Rails (rhtml files) is text.html.rails. The advantage of deriving it from (in this case) text.html is that everything which works in the text.html scope will also work in the text.html.«something» scope (but with a lower precedence than something specifically targeting text.html.«something»).
-   *
-   * ```ts
-   * /^(text|source)(\.[\w0-9-]+)+$/
+   * ```
+   * pattern: /^(text|source)(\.[\w0-9-]+)+$/
    * ```
    */
   scopeName: string;
@@ -159,9 +158,8 @@ export type Grammar = {
 };
 
 /**
- * The key should match:
  * ```ts
- * /^[0-9]+$/
+ * keyPattern: /^[0-9]+$/
  * ```
  */
 export type Captures = {
@@ -178,10 +176,10 @@ export interface Pattern {
   comment?: string;
   /**
    * set this property to 1 to disable the current pattern
-   *
-   * maximum: `1`
-   *
-   * minimum: `0`
+   * ```ts
+   * maximum: 1
+   * minimum: 0
+   * ```
    */
   disabled?: number;
   /**
@@ -234,9 +232,10 @@ export interface Pattern {
    */
   patterns?: Pattern[];
   /**
-   * maximum: `1`
-   *
-   * minimum: `0`
+   * ```ts
+   * maximum: 1
+   * minimum: 0
+   * ```
    */
   applyEndPatternLast?: number;
   [k: string]: unknown;

@@ -22,6 +22,7 @@ export class TmBuilder {
   }
 
   build(): TmLanguage {
+    // TODO: validate patterns
     return {
       $schema:
         "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
