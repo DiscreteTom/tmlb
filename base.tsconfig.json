@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
+    "target": "ES6",
     "outDir": "out",
-    "module": "ES2022",
+    "module": "CommonJS",
     "esModuleInterop": true,
-    "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "strictPropertyInitialization": false,
@@ -12,8 +11,5 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true
-  },
-  "ts-node": {
-    "esm": true
   }
 }
