@@ -1,4 +1,4 @@
-import type { Grammar, Pattern, TmLanguage } from "./tmLanguage.js";
+import type { Grammar, Pattern, TmLanguage } from "./tmLanguage";
 
 export class TmBuilder {
   readonly scopeName: TmLanguage["scopeName"];
