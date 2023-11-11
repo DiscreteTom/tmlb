@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "scopeName": "source.test",
+  "patterns": [
+    {
+      "include": "#test"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "name": "comment.line.test",
+      "match": "\\/\\/"
+    }
+  }
+}
