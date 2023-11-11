@@ -22,8 +22,8 @@ yarn add tmlb
 ```ts
 const language = new TmBuilder({ scopeName: "source.test" })
   .repo("comments", { name: "comment.line.test", match: /\/\//.source })
-  .append({ include: "#test" })
-  .build();
+  .append({ include: "#comments" })
+  .build({ validate: true });
 ```
 
 
@@ -38,7 +38,7 @@ will yield:
   "scopeName": "source.test",
   "patterns": [
     {
-      "include": "#test"
+      "include": "#comments"
     }
   ],
   "repository": {
@@ -98,7 +98,7 @@ const language = new TmBuilder({ scopeName: "source.test" })
       ),
     ).source,
   })
-  .build();
+  .build({ validate: true });
 ```
 
 </details>
