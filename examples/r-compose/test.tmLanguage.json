@@ -4,7 +4,7 @@
   "patterns": [
     {
       "name": "comment.line.double-slash.test",
-      "match": "\\/\\/.(?:\\n|$)"
+      "match": "\\/\\/.*(?:\\n|$)"
     },
     {
       "name": "comment.block.test",
