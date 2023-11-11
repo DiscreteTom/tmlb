@@ -67,7 +67,7 @@ const language = new TmBuilder({ scopeName: "source.test" })
     match: compose(({ concat, escape, select }) =>
       concat(
         escape("//"),
-        /./, // in non-multiline mode, the /./ doesn't match the /\n/
+        /.*/, // in non-multiline mode, the /./ doesn't match the /\n/
         select(/\n/, /$/),
       ),
     ).source,
