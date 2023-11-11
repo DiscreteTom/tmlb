@@ -5,8 +5,8 @@ const filename = "./examples/hello-world/test.tmLanguage.json";
 
 const language = new TmBuilder({ scopeName: "source.test" })
   .repo("comments", { name: "comment.line.test", match: /\/\//.source })
-  .append({ include: "#test" })
-  .build();
+  .append({ include: "#comments" })
+  .build({ validate: true });
 
 const content = JSON.stringify(language, null, 2);
 
