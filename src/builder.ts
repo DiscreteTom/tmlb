@@ -87,7 +87,7 @@ export class TmBuilder {
         throw new MissingFieldError(p, "begin");
       if (p.contentName !== undefined || p.beginCaptures !== undefined) {
         if (p.begin === undefined) throw new MissingFieldError(p, "begin");
-        if (p.end === undefined || p.while === undefined)
+        if (p.end === undefined && p.while === undefined)
           throw new MissingFieldError(p, "end or while");
       }
       if (p.whileCaptures !== undefined) {
