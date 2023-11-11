@@ -41,7 +41,7 @@ const language = new TmBuilder({ scopeName: "source.test" })
       ),
     ).source,
   })
-  .build();
+  .build({ validate: true });
 
 const content = JSON.stringify(language, null, 2);
 
