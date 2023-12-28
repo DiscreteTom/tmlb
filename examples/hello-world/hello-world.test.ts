@@ -14,5 +14,7 @@ const content = JSON.stringify(language, null, 2);
 // fs.writeFileSync(filename, content);
 
 test("hello-world", () => {
-  expect(content).toBe(fs.readFileSync(filename, "utf8"));
+  expect(content).toBe(
+    fs.readFileSync(filename, "utf8").replace(/\r\n/g, "\n"),
+  );
 });
